@@ -12,7 +12,7 @@ import numpy as np
 
 import utils
 
-class GUICore:
+class GUICore: # Initial config: show_window = True
     def __init__(self, board, show_window=True, save_video=False, video_file=None):
         self.board = board
         # if not board:

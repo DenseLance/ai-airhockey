@@ -21,7 +21,7 @@ import guicore
 
 def main(args):
     # load our air hockey board
-    board = cv.imread('assests/board.png')
+    board = cv.imread('assets/board.png')
 
     # initiallize game state
     state = {}
@@ -75,13 +75,29 @@ def main(args):
     result = json.dumps(result, skipkeys=True)
     return result
 
+# Training
+##if __name__ == '__main__':
+##    for i in range(100):
+##        print("Epoch:", i + 1)
+##        parser = argparse.ArgumentParser(prog=sys.argv[0])
+##
+##        # Optional arguments
+##        parser.add_argument("-p1", "--player1", default='shoeske_notDISCRETE', help="Enter Player1 file url without .py extension")
+##        parser.add_argument("-p2", "--player2", default='shoeske_notDISCRETE', help="Enter Player2 file url without .py extension")
+##        parser.add_argument("-vf", "--video_file", default=argparse.SUPPRESS, help="Enter video url to save game, use .avi extension")
+##        parser.add_argument("-sw", "--show_window", default=False, help="Do you want real-time visual feed?")
+##
+##        args_ = parser.parse_args()
+##
+##        main(args_)
 
+# Testing
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog=sys.argv[0])
 
     # Optional arguments
     parser.add_argument("-p1", "--player1", default='player_A', help="Enter Player1 file url without .py extension")
-    parser.add_argument("-p2", "--player2", default='player_BLAZERS', help="Enter Player2 file url without .py extension")
+    parser.add_argument("-p2", "--player2", default='shoeske_exploit_notDISCRETE', help="Enter Player2 file url without .py extension")
     parser.add_argument("-vf", "--video_file", default=argparse.SUPPRESS, help="Enter video url to save game, use .avi extension")
     parser.add_argument("-sw", "--show_window", default=True, help="Do you want real-time visual feed?")
 
@@ -92,7 +108,7 @@ if __name__ == '__main__':
     except Exception as exc:
         logging.error(" Oops... something went wrong :(", exc_info=True)
         status = {'status': 'ERROR', 'info': str(exc), 'goals': None, 'winner': None,
-                  'display_names': {'left': 'left', 'right': 'rigth'}}
+                  'display_names': {'left': 'left', 'right': 'right'}}
 
         print(json.dumps(status, skipkeys=True))
         sys.exit(-1)
